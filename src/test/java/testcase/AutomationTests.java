@@ -25,35 +25,35 @@ public class AutomationTests {
     // Base URL for Amazon India
     private final String BASE_URL = "https://www.amazon.in/";
 
-    @BeforeClass
-    public void setup() {
-        // ⭐ 1. Set the system property for GeckoDriver
-        // NOTE: Replace "path/to/your/geckodriver" with the actual path to your geckodriver executable
-        // Example: System.setProperty("webdriver.gecko.driver", "C:\\Selenium\\geckodriver.exe");
-        // If you are using WebDriverManager or have geckodriver in your PATH, you can skip this line.
-        // System.setProperty("webdriver.gecko.driver", "path/to/your/geckodriver"); 
+    // @BeforeClass
+    // public void setup() {
+    //     // ⭐ 1. Set the system property for GeckoDriver
+    //     // NOTE: Replace "path/to/your/geckodriver" with the actual path to your geckodriver executable
+    //     // Example: System.setProperty("webdriver.gecko.driver", "C:\\Selenium\\geckodriver.exe");
+    //     // If you are using WebDriverManager or have geckodriver in your PATH, you can skip this line.
+    //     // System.setProperty("webdriver.gecko.driver", "path/to/your/geckodriver"); 
         
-        // ⭐ 2. Initialize FirefoxDriver instead of ChromeDriver
-        driver = new FirefoxDriver();
-        driver.manage().window().maximize();
-        // Set an implicit wait for better stability
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+    //     // ⭐ 2. Initialize FirefoxDriver instead of ChromeDriver
+    //     driver = new FirefoxDriver();
+    //     driver.manage().window().maximize();
+    //     // Set an implicit wait for better stability
+    //     driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+    //     wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         
-        System.out.println("WebDriver initialized for: Firefox Browser");
-    }
+    //     System.out.println("WebDriver initialized for: Firefox Browser");
+    // }
 
-//    @BeforeClass
-//    public void setup() {
-//        // Setup WebDriver (Replace with WebDriverManager for cleaner setup)
-//        // For demonstration, we assume ChromeDriver is accessible or configured.
-//        
-//        driver = new ChromeDriver();
-//        driver.manage().window().maximize();
-//        // Set an implicit wait for better stability
-//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-//        wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-//    }
+   @BeforeClass
+   public void setup() {
+       // Setup WebDriver (Replace with WebDriverManager for cleaner setup)
+       // For demonstration, we assume ChromeDriver is accessible or configured.
+       
+       driver = new ChromeDriver();
+       driver.manage().window().maximize();
+       // Set an implicit wait for better stability
+       driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+       wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+   }
 
     // ====================================================================
     // 5 POSITIVE AUTOMATION SCENARIOS FOR AMAZON.IN
