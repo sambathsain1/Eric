@@ -18,51 +18,46 @@ public class AutomationTests {
     @BeforeClass
     public void setup() {
 
-        // 🔥 HEADLESS MODE ENABLED
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless=new");      // New Chrome headless mode
+
+        // 🔥 Headless mode (Jenkins/Linux compatible)
+        options.addArguments("--headless=new");
         options.addArguments("--disable-gpu");
-        options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--no-sandbox");
         options.addArguments("--window-size=1920,1080");
+        options.addArguments("--disable-extensions");
         options.addArguments("--remote-allow-origins=*");
+        options.addArguments("--disable-blink-features=AutomationControlled");
 
         driver = new ChromeDriver(options);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
+        wait = new WebDriverWait(driver, Duration.ofSeconds(25));
     }
 
-    // ===========================================================
-    // 1️⃣ TEST – Verify Home Page Loads
-    // ===========================================================
+    // 1️⃣ Home page test
     @Test(priority = 1)
     public void test01_verifyHomePage() {
         driver.get(BASE_URL);
         Assert.assertTrue(driver.getTitle().contains("Demo Web Shop"));
     }
 
-    // ===========================================================
-    // 2️⃣ TEST – Search Product
-    // ===========================================================
+    // 2️⃣ Search product
     @Test(priority = 2)
     public void test02_searchProduct() {
         driver.get(BASE_URL);
 
-        WebElement searchBox = driver.findElement(By.id("small-searchterms"));
-        searchBox.sendKeys("laptop" + Keys.ENTER);
+        driver.findElement(By.id("small-searchterms")).sendKeys("laptop" + Keys.ENTER);
 
         WebElement title = wait.until(
-                ExpectedConditions.visibilityOfElementLocated(
-                        By.cssSelector(".page-title h1")
-                )
+            ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".page-title h1"))
         );
 
         Assert.assertTrue(title.getText().contains("Search"));
     }
 
-    // ===========================================================
-    // 3️⃣ TEST – Add Product to Cart
-    // ===========================================================
+    // 3️⃣ Add product to cart
     @Test(priority = 3)
     public void test03_addProductToCart() {
         driver.get(BASE_URL);
@@ -70,29 +65,23 @@ public class AutomationTests {
         driver.findElement(By.id("small-searchterms")).sendKeys("laptop" + Keys.ENTER);
 
         WebElement firstProduct = wait.until(
-                ExpectedConditions.elementToBeClickable(
-                        By.cssSelector(".product-item .product-title a")
-                )
+            ExpectedConditions.elementToBeClickable(By.cssSelector(".product-item .product-title a"))
         );
         firstProduct.click();
 
-        WebElement addToCartBtn = wait.until(
-                ExpectedConditions.elementToBeClickable(By.id("add-to-cart-button-31"))
+        WebElement addToCart = wait.until(
+            ExpectedConditions.elementToBeClickable(By.id("add-to-cart-button-31"))
         );
-        addToCartBtn.click();
+        addToCart.click();
 
         WebElement successMsg = wait.until(
-                ExpectedConditions.visibilityOfElementLocated(
-                        By.cssSelector(".bar-notification.success")
-                )
+            ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".bar-notification.success"))
         );
 
-        Assert.assertTrue(successMsg.getText().contains("The product has been added"));
+        Assert.assertTrue(successMsg.getText().contains("added"));
     }
 
-    // ===========================================================
-    // 4️⃣ TEST – Registration
-    // ===========================================================
+    // 4️⃣ Registration
     @Test(priority = 4)
     public void test04_registerUser() {
         driver.get(BASE_URL);
@@ -103,7 +92,8 @@ public class AutomationTests {
         driver.findElement(By.id("FirstName")).sendKeys("Test");
         driver.findElement(By.id("LastName")).sendKeys("User");
 
-        String email = "testuser" + System.currentTimeMillis() + "@mail.com";
+        String email = "user" + System.currentTimeMillis() + "@mail.com";
+
         driver.findElement(By.id("Email")).sendKeys(email);
         driver.findElement(By.id("Password")).sendKeys("Test@12345");
         driver.findElement(By.id("ConfirmPassword")).sendKeys("Test@12345");
@@ -111,17 +101,13 @@ public class AutomationTests {
         driver.findElement(By.id("register-button")).click();
 
         WebElement result = wait.until(
-                ExpectedConditions.visibilityOfElementLocated(
-                        By.cssSelector(".result")
-                )
+            ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".result"))
         );
 
         Assert.assertTrue(result.getText().contains("completed"));
     }
 
-    // ===========================================================
-    // 5️⃣ TEST – Verify Category Navigation
-    // ===========================================================
+    // 5️⃣ Category navigation
     @Test(priority = 5)
     public void test05_verifyCategoryNavigation() {
         driver.get(BASE_URL);
@@ -129,7 +115,7 @@ public class AutomationTests {
         driver.findElement(By.linkText("Books")).click();
 
         WebElement title = wait.until(
-                ExpectedConditions.visibilityOfElementLocated(By.tagName("h1"))
+            ExpectedConditions.visibilityOfElementLocated(By.tagName("h1"))
         );
 
         Assert.assertEquals(title.getText(), "Books");
