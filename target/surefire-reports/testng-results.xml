@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="7" passed="7" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-11-14T13:21:20 IST" name="Regression_Suite_API_UI" finished-at="2025-11-14T13:22:07 IST" duration-ms="46801">
+    <groups>
+    </groups>
+    <test started-at="2025-11-14T13:21:20 IST" name="Amazon_NHTSA_Tests" finished-at="2025-11-14T13:22:07 IST" duration-ms="46801">
+      <class name="testcase.HondaApiTests">
+        <test-method is-config="true" signature="setup()[pri:0, instance:testcase.HondaApiTests@49b0b76]" started-at="2025-11-14T13:21:20 IST" name="setup" finished-at="2025-11-14T13:21:20 IST" duration-ms="374" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="test01_getAllMakes_StatusCodeOnly()[pri:1, instance:testcase.HondaApiTests@49b0b76]" started-at="2025-11-14T13:21:20 IST" name="test01_getAllMakes_StatusCodeOnly" finished-at="2025-11-14T13:21:24 IST" duration-ms="3736" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test01_getAllMakes_StatusCodeOnly -->
+        <test-method signature="test02_getPartsAsJsonAndValidateManufacturer()[pri:2, instance:testcase.HondaApiTests@49b0b76]" started-at="2025-11-14T13:21:24 IST" name="test02_getPartsAsJsonAndValidateManufacturer" finished-at="2025-11-14T13:21:25 IST" duration-ms="1291" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test02_getPartsAsJsonAndValidateManufacturer -->
+      </class> <!-- testcase.HondaApiTests -->
+      <class name="testcase.AutomationTests">
+        <test-method is-config="true" signature="setup()[pri:0, instance:testcase.AutomationTests@be64738]" started-at="2025-11-14T13:21:25 IST" name="setup" finished-at="2025-11-14T13:21:34 IST" duration-ms="8150" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="test01_VerifyHomePageLoad()[pri:1, instance:testcase.AutomationTests@be64738]" started-at="2025-11-14T13:21:34 IST" name="test01_VerifyHomePageLoad" finished-at="2025-11-14T13:21:38 IST" duration-ms="4360" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test01_VerifyHomePageLoad -->
+        <test-method signature="test02_SuccessfulProductSearch()[pri:2, instance:testcase.AutomationTests@be64738]" started-at="2025-11-14T13:21:38 IST" name="test02_SuccessfulProductSearch" finished-at="2025-11-14T13:21:43 IST" duration-ms="4597" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test02_SuccessfulProductSearch -->
+        <test-method signature="test03_NavigateToMobilesCategory()[pri:3, instance:testcase.AutomationTests@be64738]" started-at="2025-11-14T13:21:43 IST" name="test03_NavigateToMobilesCategory" finished-at="2025-11-14T13:21:48 IST" duration-ms="5101" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test03_NavigateToMobilesCategory -->
+        <test-method signature="test04_VerifyAccountListHoverMenu()[pri:4, instance:testcase.AutomationTests@be64738]" started-at="2025-11-14T13:21:48 IST" name="test04_VerifyAccountListHoverMenu" finished-at="2025-11-14T13:21:50 IST" duration-ms="2590" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test04_VerifyAccountListHoverMenu -->
+        <test-method signature="test05_VerifyProductPageAndAddToCartButton()[pri:5, instance:testcase.AutomationTests@be64738]" started-at="2025-11-14T13:21:50 IST" name="test05_VerifyProductPageAndAddToCartButton" finished-at="2025-11-14T13:22:03 IST" duration-ms="12788" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test05_VerifyProductPageAndAddToCartButton -->
+        <test-method is-config="true" signature="teardown()[pri:0, instance:testcase.AutomationTests@be64738]" started-at="2025-11-14T13:22:03 IST" name="teardown" finished-at="2025-11-14T13:22:07 IST" duration-ms="3530" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+      </class> <!-- testcase.AutomationTests -->
+    </test> <!-- Amazon_NHTSA_Tests -->
+  </suite> <!-- Regression_Suite_API_UI -->
+</testng-results>
